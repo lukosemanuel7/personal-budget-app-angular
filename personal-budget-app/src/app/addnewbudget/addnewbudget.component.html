@@ -1,0 +1,69 @@
+<div class="w-25 p-3 ">
+  <div class="d-inline">
+    <select id="year" class="browser-default custom-select">
+      <option value="2020">2023</option>
+      <option value="2020">2022</option>
+      <option value="2020">2021</option>
+      <option selected value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+    </select>
+  </div>
+  <div >
+  <select id="month" class="browser-default custom-select">
+    <option value="January">January</option>
+    <option value="Febuary">Febuary</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="September">September</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option selected value="December">December</option>
+  </select>
+  </div>
+  <button class="d-inline" (click)="getBudgetsForUser()">GO</button>
+</div>
+<div>
+  <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+
+    <div formArrayName="budgets">
+
+      <div *ngFor="let budget of budgets().controls; let budgetIndex=index">
+
+        <div  class="form-inline w-75" [formGroupName]="budgetIndex" style="padding: 10px; margin: 5px;">
+          Expense Name :
+          <input type="text" formControlName="expenseName">
+          Budget :
+          <input type="number" formControlName="budgetValue">
+          Expense:
+          <input type="number" formControlName="expenseValue">
+
+          <button (click)="removeBudget(budgetIndex)">Remove</button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <p>
+      <button type="button" (click)="addBudget()">Add New Expense</button>
+    </p>
+    <p>
+      <button type="submit">Save</button>
+    </p>
+
+  </form>
+</div>
+
+
