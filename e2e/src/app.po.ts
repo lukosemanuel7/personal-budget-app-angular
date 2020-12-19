@@ -6,6 +6,9 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+    return element(by.id('free')).getText() as Promise<string>;
+  }
+  getHeadingText(): Promise<string> {
+    return element(by.id('stay')).getText() as Promise<string>;
   }
 }

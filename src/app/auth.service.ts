@@ -20,7 +20,7 @@ export class AuthService {
   user: any;
   tokenSubscription = new Subscription()
   timeout;
-  apiUrl = 'http://localhost:3000/';
+  apiUrl = 'http://104.131.56.22:3000/';
 
   constructor(private router: Router, private http: HttpClient) {
     this.userLoggedIn.next(false);

@@ -8,10 +8,20 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display alerts', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('personal-budget-app app is running!');
+    expect(page.getTitleText()).toEqual('Free');
   });
+
+  it('should display alerts', () => {
+    page.navigateTo();
+    expect(page.getHeadingText()).toEqual('Stay on track');
+  });
+
+  // it('should display welcome message', () => {
+  //   page.navigateTo();
+  //   expect(page.getTitleText()).toEqual('personal-budget-app app is running!');
+  // });
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

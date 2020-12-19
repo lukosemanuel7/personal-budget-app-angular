@@ -199,6 +199,7 @@ app.post("/api/getBudgetId", jwtMW, (req, res) => {
               token: null,
               err: "Invalid input",
             });
+          }
           console.log(result);
           if (result != null) {
             res.json({
@@ -254,12 +255,14 @@ app.delete("/api/budgetID/:budgetId", jwtMW, (req, res) => {
             token: null,
             err: "Invalid input",
           });
+        }
         console.log(obj.result.n + " document(s) deleted");
         res.json({
           success: true,
           err: null,
           budgets: obj.result.n,
         });
+
         client.close();
       });
   });
@@ -277,7 +280,7 @@ app.post("/api/addBudgets", jwtMW, (req, res) => {
       .collection("budgets")
       .insertMany(req.body, function (err, result) {
         if (err) {
-          res.status(400).json({
+          res.status(401).json({
             success: false,
             budgetId: null,
             err: "Invalid details",
