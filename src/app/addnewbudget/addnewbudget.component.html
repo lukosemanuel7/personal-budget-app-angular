@@ -32,7 +32,7 @@
     <option selected value="December">December</option>
   </select>
   </div>
-  <button class="d-inline" (click)="getBudgetsForUser()">GO</button>
+  <button aria-label = "Get Budgets Button" class="d-inline" (click)="getBudgetsForUser()">GO</button>
 </div>
 <div>
   <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">

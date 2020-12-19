@@ -52,6 +52,7 @@ export class AppComponent {
     idle.onIdleStart.subscribe(() => {
         this.idleState = 'You\'ve gone idle!'
         console.log(this.idleState);
+        this.setIdleRefreshToken();
         this.childModal.show();
     });
 
@@ -119,6 +120,7 @@ export class AppComponent {
     this.childModal.hide();
     this.authService.setUserLoggedIn(false);
     this.router.navigate(['/login']);
+    this.authService.logout();
   }
 
 

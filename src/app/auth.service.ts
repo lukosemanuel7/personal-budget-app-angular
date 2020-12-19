@@ -110,7 +110,8 @@ export class AuthService {
   getBudgetIdFromDB(param:Object): Observable<any> {
     return this.http.post(this.apiUrl+'api/getBudgetId', param, {
       headers: new HttpHeaders({
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer '+this.authToken
       })
     });
   }
@@ -128,7 +129,8 @@ export class AuthService {
 
     return this.http.get(this.apiUrl+`api/budgetID/${budgetId}`, {
       headers: new HttpHeaders({
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer '+this.authToken
       })
     });
   }
@@ -137,7 +139,8 @@ export class AuthService {
 
     return this.http.post(this.apiUrl+'api/addBudgets', param, {
       headers: new HttpHeaders({
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer '+this.authToken
       })
     });
   }
@@ -146,7 +149,8 @@ export class AuthService {
 
     return this.http.delete(this.apiUrl+`api/budgetID/${budgetId}`, {
       headers: new HttpHeaders({
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer '+this.authToken
       })
     });
   }

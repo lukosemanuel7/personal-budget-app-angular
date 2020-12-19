@@ -40,7 +40,11 @@
       <option selected value="December">December</option>
     </select>
   </div>
-  <button class="d-inline" (click)="getDataForCharts()">GO</button>
+  <button aria-label = "Show Charts" class="d-inline" (click)="getDataForCharts()">GO</button>
+</div>
+<div class="col-6">
+  <h4>Bar Chart</h4>
+  <app-bar-chart *ngIf="loadIndex == 2" [resetFormSubject]="resetFormSubject.asObservable()"></app-bar-chart>
 </div>
 <div class="col-6">
   <h4>Line Chart</h4>
@@ -50,7 +54,4 @@
   <h4>Pie Chart</h4>
   <app-pie-chart *ngIf="loadIndex == 2" [resetFormSubject]="resetFormSubject.asObservable()"></app-pie-chart>
 </div>
-<div class="col-6">
-  <h4>Bar Chart</h4>
-  <app-bar-chart *ngIf="loadIndex == 2" [resetFormSubject]="resetFormSubject.asObservable()"></app-bar-chart>
-</div>
+
