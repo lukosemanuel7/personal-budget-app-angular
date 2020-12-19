@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   token: any;
+  refreshToken: any;
   id: any;
 
   constructor(
@@ -53,11 +54,13 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                   console.log(data);
+                  this.authService.setUserLoggedIn(true);
                     this.router.navigate(['/dashboard']);
                     this.token = data.token;
                     this.id = data.id;
+                    this.refreshToken = data.refreshToken;
                     console.log(this.token);
-                    this.authService.storeUserData(this.id, this.token, this.f.username.value)
+                    this.authService.storeUserData(this.id, this.token, this.f.username.value, this.refreshToken);
                 },
                 error => {
                   this.loading = false;

@@ -1,0 +1,7 @@
+<div class="chartjs-container">
+  <canvas baseChart height="300" width="500" [datasets]="lineChartData" [labels]="lineChartLabels"
+    [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+    [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)" [options]="lineChartOptions"
+    (chartClick)="chartClicked($event)">
+  </canvas>
+</div>

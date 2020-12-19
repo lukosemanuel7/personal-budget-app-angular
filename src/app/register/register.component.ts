@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   token: any;
+  refreshToken: any;
   id: any
 
   constructor(private formBuilder: FormBuilder,
@@ -57,7 +58,8 @@ export class RegisterComponent implements OnInit {
                 this.token = data.token;
                 this.id = data.id;
                 console.log(this.token);
-                this.authService.storeUserData(this.id, this.token, this.f.username.value)
+                this.refreshToken = data.refreshToken;
+                this.authService.storeUserData(this.id, this.token, this.f.username.value, this.refreshToken)
               }
             },
             error => {

@@ -16,6 +16,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddnewbudgetComponent } from './addnewbudget/addnewbudget.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickerComponent } from './picker/picker.component';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { MomentModule } from 'angular2-moment';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -27,14 +34,21 @@ import { PickerComponent } from './picker/picker.component';
     RegisterComponent,
     DashboardComponent,
     AddnewbudgetComponent,
-    PickerComponent
+    PickerComponent,
+    PieChartComponent,
+    LineChartComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgIdleKeepaliveModule.forRoot(),
+    MomentModule,
+    ModalModule.forRoot(),
+    ChartsModule
 
   ],
   providers: [AuthService],

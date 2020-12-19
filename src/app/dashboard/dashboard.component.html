@@ -1,8 +1,56 @@
-<div style = "text-align:center">
+<div style="text-align:center">
   <h1>
-     Welcome {{title}}!!
+    Welcome {{title}}!!
   </h1>
 </div>
 <button (click)="addNewBudget()" class="btn btn-primary">
   Add New Budget
 </button>
+<div class="w-25 p-3 ">
+  <div class="d-inline">
+    <select id="year" class="browser-default custom-select">
+      <option value="2020">2023</option>
+      <option value="2020">2022</option>
+      <option value="2020">2021</option>
+      <option selected value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+    </select>
+  </div>
+  <div>
+    <select id="month" class="browser-default custom-select">
+      <option value="January">January</option>
+      <option value="Febuary">Febuary</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option selected value="December">December</option>
+    </select>
+  </div>
+  <button class="d-inline" (click)="getDataForCharts()">GO</button>
+</div>
+<div class="col-6">
+  <h4>Line Chart</h4>
+  <app-line-chart *ngIf="loadIndex == 2" [resetFormSubject]="resetFormSubject.asObservable()"></app-line-chart>
+</div>
+<div class="col-6">
+  <h4>Pie Chart</h4>
+  <app-pie-chart *ngIf="loadIndex == 2" [resetFormSubject]="resetFormSubject.asObservable()"></app-pie-chart>
+</div>
+<div class="col-6">
+  <h4>Bar Chart</h4>
+  <app-bar-chart *ngIf="loadIndex == 2" [resetFormSubject]="resetFormSubject.asObservable()"></app-bar-chart>
+</div>
